@@ -1,5 +1,7 @@
 import random
 import time
+import payout
+import cfg
 x = True
 startamount = 100
 u = True
@@ -9,6 +11,9 @@ spot = None
 match = []
 name =[]
 readrules = "n"
+drum =[]
+match = []
+winnings = 0
 
 def spots():
       x = True
@@ -16,11 +21,11 @@ def spots():
       while x == True:
             while True:
                   try:
-                        spot = int(input("How many spots would you like to pick? 1 - 8"))
+                        cfg.spot = int(input("How many spots would you like to pick? 1 - 8"))
                         break
-                  except:
+                  except Exception:
                         print("that is not a valid option Please Choose a between 1 and 8 spots")
-            if int(spot) < 9:
+            if int(cfg.spot) < 9:
                   x = False
             else:
                    print("that is not a valid option Please Choose a between 1 and 8 spots")
@@ -37,7 +42,7 @@ def bets():
                   try:
                         bet = int(input("How much would you like to bet?"))
                         break
-                  except:
+                  except Exception:
                         print("please enter a whole number")
                   
             if int(bet) > startamount:
@@ -84,7 +89,7 @@ def numbers():
                         try:
                               pick1 = int(input("Pick a Number 1 - 80?"))
                               break
-                        except:
+                        except Exception:
                               print("please enter a whole number")
                         
                   if int(pick1) > 81 or int(pick1) < 0:
@@ -93,9 +98,30 @@ def numbers():
                         x = False
                         pick.append(pick1)
 
-#welcome()
-#bets()
-spots()
-numbers()
-#game()
+def drumroll():
+    global drum
+    drum = random.sample((range(1,80)), k=20)
+
+def matches():
+    global drum
+    global pick
+    global match
+    for z in drum:
+        for x in range(1):
+            print(z)
+        for y in pick:
+            if y == z:
+                match.append(y)
+
+if __name__ == "__main__":
+    #welcome()
+    #bets()
+    spots()
+    print(cfg.spot)
+    #numbers()i
+    #drumroll()
+    #matches()
+    #payout.pick1(100,2,1,False,winnings)
+    #print(winnings)
+    #game()
 
