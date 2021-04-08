@@ -121,16 +121,11 @@ def picks():
     elif cfg.spot == 8:
         payout.pick8
 
-def maingame():
-
-
-
-
 if __name__ == "__main__":
     welcome()
-    x = True
     bets()
     spots()
+    print(cfg.spot)
     numbers()
     drumroll()
     matches()
