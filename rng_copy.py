@@ -102,8 +102,9 @@ def matches():
         for y in cfg.pick:
             if y == z:
                 cfg.match.append(y)
-
 def picks():
+    n = len(cfg.match)
+    cfg.match.clear()
     if cfg.spot == 1:
         payout.pick1
     elif cfg.spot == 2:
@@ -119,19 +120,53 @@ def picks():
     elif cfg.spot == 7:
         payout.pick7
     elif cfg.spot == 8:
-        payout.pick8
+        if n == 1:
+            print("you got one match you are not a winner")
+        elif n == 2:
+            print("you got 2 matchs you are not a winner")
+        elif n == 3:
+            print("you got 2 matchs you are not a winner")
+        elif n == 4:
+            cfg.startamount = cfg.bet+cfg.startamount
+            winning = cfg.bet
+            print("you got 4 matchs Winner!"+str(winning)+" Credits")
+            cfg.result = True
+        elif n == 5:
+            cfg.startamount = cfg.bet*4+cfg.startamount
+            winnings = cfg.bet*4+cfg
+            print("you got 5 matchs Winner!"+str(winning)+" Credits")
+            cfg.result = True
+        elif n == 6:
+            cfg.startamount = cfg.bet*40+cfg.startamount
+            winning = cfg.bet*40+cfg
+            print("you got 6 matchs Winner!"+str(winning)+" Credits")
+            cfg.result = True
+        elif n == 7:
+            cfg.startamount = cfg.bet*400+cfg.startamount
+            winning = cfg.bet*400
+            print("you got 7 matchs Winner!"+str(winning)+" Credits")
+            cfg.result = True
+        elif n == 8:
+            cfg.startamount = cfg.bet*20000+cfg.startamount
+            winning = cfg.bet*20000
+            cfg.result = True
+            print("you got 4 matchs Winner!"+str(winning)+" Credits")
+        else:
+            cfg.startamount = cfg.bet+cfg.startamount
+            winning = cfg.bet
+            print("you got 0 matchs Winner!"+str(winning)+" Credits")
 
 
             
 def maingame():
     picks()
     cfg.startamount = cfg.startamount-cfg.bet
-    print(cfg.winnings)
+    #print(cfg.winnings)
     if cfg.result == True:
-        print("you are a winner")
+        #print("you are a winner")
         print("Credits = " +str(cfg.startamount))
     else:
-        print("you are a loser")
+        #print("you are a loser")
         print("Credits = " +str(cfg.startamount))
     
 

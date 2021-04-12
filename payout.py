@@ -10,29 +10,30 @@ def pick1():
         print("loser")
 
 
-def pick8(n):
-    if cfg.matches == 1:
+def pick8():
+    n = 8
+    if n == 1:
         print("you got one match you are not a winner")
-    elif cfg.matches == 2:
+    elif n == 2:
         print("you got 2 matchs you are not a winner")
-    elif cfg.matches == 3:
+    elif n == 3:
         print("you got 2 matchs you are not a winner")
-    elif cfg.matches == 4:
+    elif n == 4:
         cfg.startamount = cfg.bet+cfg.startamount
         cfg.result = True
-    elif cfg.matches == 5:
+    elif n == 5:
         cfg.startamount = cfg.bet*4+cfg.startamount
         print("you got 5 matchs Winner!")
         cfg.result = True
-    elif cfg.matches == 6:
+    elif n == 6:
         cfg.startamount = cfg.bet*40+cfg.startamount
         print("you got 6 matchs Winner!")
         cfg.result = True
-    elif cfg.matches == 7:
+    elif n == 7:
         cfg.startamount = cfg.bet*400+cfg.startamount
         print("you got 7 matchs Winner!")
         cfg.result = True
-    elif cfg.matches == 8:
+    elif n == 8:
         cfg.startamount = cfg.bet*20000+cfg.startamount
         cfg.result = True
         print("you got 8 matchs Winner!")
